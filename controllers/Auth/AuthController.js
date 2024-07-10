@@ -157,7 +157,7 @@ class AuthController {
             });
           }
         } else {
-          res.send({ status: "error", message: "Wrong username or password" });
+          res.send({ status: "error", message: "User Not Found" });
         }
       } catch (error) {
         res.send({ status: "error", message: error.message });
