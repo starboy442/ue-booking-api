@@ -32,7 +32,7 @@ if (!process.env.SECRET_KEY) {
 app.use(admin_router);
 app.use(game_router);
 app.use("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "static/index.html"));
+  res.sendFile(path.join(__dirname, "static", "index.html"));
 });
 
 app.listen(PORT, () => {
