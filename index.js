@@ -15,7 +15,12 @@ dotenv.config();
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
-app.use(cors());
+app.use(
+  cors({
+    origin: ["http://tap24h.me", "https://tap24h.me"],
+    credentials: true,
+  })
+);
 app.use(express.json());
 app.use("/static", express.static(path.join(__dirname, "static")));
 
