@@ -93,13 +93,23 @@ class AuthController {
             password: hash_password,
           });
         }
+        
         await new_user
           .save()
           .then((user) => {
+            const expiresIn = 7 * 24 * 60 * 60;
+            const token = jwt.sign(
+              {
+                id: user._id,
+              },
+              process.env.SECRET_KEY,
+              { expiresIn: expiresIn }
+            );
             res.send({
               status: "success",
               message: "Account created successfully!",
               user: user,
+              token: token,
             });
           })
           .catch((error) => {

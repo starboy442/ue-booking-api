@@ -17,7 +17,7 @@ const __dirname = dirname(__filename);
 
 app.use(
   cors({
-    origin: ["http://tap24h.me", "https://tap24h.me"],
+    origin: ["http://tap24h.me", "https://tap24h.me", "http://localhost:4000"],
     credentials: true,
   })
 );
